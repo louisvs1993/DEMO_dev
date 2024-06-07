@@ -18,6 +18,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddTransient<LabelService>();
 builder.Services.AddTransient<LabelDAO>();
 
+builder.Services.AddTransient<CountryService>();
+builder.Services.AddTransient<CountryDAO>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddControllersWithViews();
 

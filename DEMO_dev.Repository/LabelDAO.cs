@@ -24,12 +24,24 @@ namespace DEMO_dev.Repository
         }
 
         //TODO change to get all labels by user
-        public async Task<IEnumerable<Label>> GetAllByUser(int userID)
+        public async Task<IEnumerable<Label>> GetAllByUser(string userID)
         {
             return await _dbContext.LabelUsers
-                                    .Where(lu => lu.UserId == userID.ToString())
+                                    .Where(lu => lu.UserId == userID)
                                     .Select(lu => lu.Label)
                                     .ToListAsync();
+        }
+
+        public async Task Add(Label entity)
+        {
+            await _dbContext.Labels.AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<int> AddWithReturn(Label entity)
+        {
+            var result = await _dbContext.Labels.AddAsync(entity);
+            return result.Entity.Id;
         }
 
     }

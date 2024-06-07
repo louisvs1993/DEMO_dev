@@ -21,5 +21,20 @@ namespace DEMO_dev.Service
         {
             return await _dao.GetAll();
         }
+
+        public async Task<IEnumerable<Label>> GetAllByUser(string userID) 
+        {
+            return await _dao.GetAllByUser(userID);
+        }
+
+        public async Task Add(Label entity)
+        {
+            await _dao.Add(entity);
+        }
+
+        public async Task<int> AddWithReturn(Label entity)
+        {
+            return await _dao.AddWithReturn(entity);
+        }
     }
 }
