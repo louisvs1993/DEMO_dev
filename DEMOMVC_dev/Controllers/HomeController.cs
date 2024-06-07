@@ -1,9 +1,9 @@
 using AutoMapper;
-using DEMOMVC_dev.Models;
+using DEMO_dev.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace DEMOMVC_dev.Controllers
+namespace DEMO_dev.Controllers
 {
     public class HomeController : Controller
     {

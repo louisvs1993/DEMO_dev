@@ -71,6 +71,8 @@ public partial class DemoDevContext : DbContext
         {
             entity.ToTable("Artist_Demo");
 
+            entity.HasIndex(e => new { e.ArtistId, e.DemoId }, "UQ_Artist_Demo").IsUnique();
+
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.ArtistId).HasColumnName("artist_id");
             entity.Property(e => e.DemoId).HasColumnName("demo_id");
@@ -90,11 +92,11 @@ public partial class DemoDevContext : DbContext
         {
             entity.ToTable("Artist_User");
 
+            entity.HasIndex(e => new { e.ArtistId, e.UserId }, "UQ_Artist_User").IsUnique();
+
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.ArtistId).HasColumnName("artist_id");
-            entity.Property(e => e.UserId)
-                .HasMaxLength(450)
-                .HasColumnName("user_id");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
 
             entity.HasOne(d => d.Artist).WithMany(p => p.ArtistUsers)
                 .HasForeignKey(d => d.ArtistId)
@@ -242,6 +244,8 @@ public partial class DemoDevContext : DbContext
         {
             entity.ToTable("Label_Demo");
 
+            entity.HasIndex(e => new { e.LabelId, e.DemoId }, "UQ_Label_Demo").IsUnique();
+
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.DemoId).HasColumnName("demo_id");
             entity.Property(e => e.LabelId).HasColumnName("label_id");
@@ -261,11 +265,11 @@ public partial class DemoDevContext : DbContext
         {
             entity.ToTable("Label_User");
 
+            entity.HasIndex(e => new { e.LabelId, e.UserId }, "UQ_Label_User").IsUnique();
+
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.LabelId).HasColumnName("label_id");
-            entity.Property(e => e.UserId)
-                .HasMaxLength(450)
-                .HasColumnName("user_id");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
 
             entity.HasOne(d => d.Label).WithMany(p => p.LabelUsers)
                 .HasForeignKey(d => d.LabelId)

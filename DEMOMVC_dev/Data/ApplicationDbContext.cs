@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace DEMOMVC_dev.Data
+namespace DEMO_dev.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

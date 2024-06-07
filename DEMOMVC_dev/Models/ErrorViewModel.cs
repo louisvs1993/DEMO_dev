@@ -1,4 +1,4 @@
-namespace DEMOMVC_dev.Models
+namespace DEMO_dev.Models
 {
     public class ErrorViewModel
     {

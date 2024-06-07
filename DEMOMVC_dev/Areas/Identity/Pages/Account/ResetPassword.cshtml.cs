@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 
-namespace DEMOMVC_dev.Areas.Identity.Pages.Account
+namespace DEMO_dev.Areas.Identity.Pages.Account
 {
     public class ResetPasswordModel : PageModel
     {
